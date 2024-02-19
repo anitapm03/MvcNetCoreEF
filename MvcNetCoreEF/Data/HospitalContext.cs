@@ -14,5 +14,6 @@ namespace MvcNetCoreEF.Data
         //por cada model necesitamos una colaccion DbSet que sera 
         //la que usaremos para las consultas Linq
         public DbSet<HospitalEF> Hospitales { get; set; }
+        public DbSet<Empleado> Empleados { get; set; }
     }
 }
