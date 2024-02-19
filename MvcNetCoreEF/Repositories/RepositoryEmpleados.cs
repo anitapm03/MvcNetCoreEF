@@ -30,5 +30,32 @@ namespace MvcNetCoreEF.Repositories
 
             return consulta.ToList();
         }
+
+        //metodo para incrementar el salario por oficio 
+        //devuelve el model de los empleados y su resumen
+        public ModelEmpleados IncrementarSalarioOficio
+            (int incremento, string oficio)
+        {
+            //recuperamos los empleados
+            List<Empleado> empleados = this.GetEmpleadosOficio(oficio);
+            //recorremos cada empleado para aumentar su salario
+            foreach (Empleado emp in empleados)
+            {
+                emp.Salario += incremento;
+
+            }
+            //guardamos los cambios
+            this.context.SaveChanges();
+            //mediante lambda debemos recuperar el resumen de los datos
+            int suma = empleados.Sum(x => x.Salario);
+            double media = empleados.Average(z => z.Salario);
+
+            ModelEmpleados model = new ModelEmpleados();
+            model.Empleados = empleados;
+            model.SumaSalarial = suma;
+            model.MediaSalarial = media;
+
+            return model;
+        }
     }
 }

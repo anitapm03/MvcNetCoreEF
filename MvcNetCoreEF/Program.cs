@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 string connectionString = builder.Configuration.GetConnectionString("SqlHospital");
 //resolvemos el repo con transient
 builder.Services.AddTransient<RepositoryHospital>();
+builder.Services.AddTransient<RepositoryEmpleados>();
 
 //para inyectar un context se usa el service AddDbContext
 //donde debemos indicar la cadena de conecion en sus options

@@ -1,0 +1,51 @@
+﻿@model ModelEmpleados
+@{
+    List<string> oficios = (List<string>)ViewData["OFICIOS"];
+}
+
+<h1>Incremento por oficio</h1>
+
+<form method="post">
+    <label>Oficio</label>
+    <select name="oficio" class="form-control">
+        @foreach (string of in oficios)
+        {
+            <option value="@of">@of</option>
+        }
+    </select>
+    <br />
+    <label>Incremento</label>
+    <input type="number" name="incremento" class="form-control" />
+    <br />
+    <button class="btn btn-success">Incrementar!</button>
+</form>
+
+@if (Model != null)
+{
+    <h2>
+        Suma salarial: @Model.SumaSalarial
+    </h2>
+    <h2>
+        Media salarial: @Model.MediaSalarial
+    </h2>
+    <table class="table table-active">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Oficio</th>
+                <th>Salario</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Empleado e in Model.Empleados)
+            {
+                <tr>
+                    <td>@e.Apellido</td>
+                    <td>@e.Oficio</td>
+                    <td>@e.Salario</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
