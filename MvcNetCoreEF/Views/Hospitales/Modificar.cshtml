@@ -1,0 +1,27 @@
+﻿@model HospitalEF
+
+<h1>Modificar hospital</h1>
+
+<a asp-controller="Hospitales"
+   asp-action="Index" class="btn btn-info">
+    Volver
+</a>
+
+<form method="post">
+    <input type="hidden" name="idhospital" value="@Model.IdHospital" class="form-control" />
+    <br />
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="@Model.Nombre" class="form-control" />
+    <br />
+    <label>Direccion:</label>
+    <input type="text" name="direccion" value="@Model.Direccion" class="form-control" />
+    <br />
+    <label>Telefono:</label>
+    <input type="text" name="telefono" value="@Model.Telefono" class="form-control" />
+    <br />
+    <label>Numero de camas:</label>
+    <input type="number" name="camas" value="@Model.Camas" class="form-control" />
+    <br />
+    <button class="btn btn-success">Modificar!</button>
+</form>
+

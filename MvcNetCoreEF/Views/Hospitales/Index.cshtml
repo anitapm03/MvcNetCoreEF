@@ -2,6 +2,11 @@
 
 <h1>Hospitales</h1>
 
+<a asp-controller="Hospitales"
+   asp-action="Crear" class="btn btn-success">
+    Crear un hospital
+</a>
+<br />
 <table class="table table-dark">
     <thead>
         <tr>
@@ -9,6 +14,7 @@
             <th>Direccion</th>
             <th>Telefono</th>
             <th>Camas</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +25,22 @@
                 <td>@h.Direccion</td>
                 <td>@h.Telefono</td>
                 <td>@h.Camas</td>
+
+                <td>
+                    <a asp-controller="Hospitales" asp-action="Details"
+                    class="btn btn-info" asp-route-idhospital="@h.IdHospital">
+                        Detalles
+                    </a>
+                    <a asp-controller="Hospitales" asp-action="Modificar"
+                       class="btn btn-dark" asp-route-idhospital="@h.IdHospital">
+                        Modificar
+                    </a>
+                    <a asp-controller="Hospitales" asp-action="Eliminar"
+                       class="btn btn-danger" asp-route-idhospital="@h.IdHospital">
+                        Eliminar
+                    </a>
+
+                </td>
             </tr>
         }
     </tbody>

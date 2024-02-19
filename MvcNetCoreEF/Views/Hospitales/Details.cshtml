@@ -1,0 +1,12 @@
+﻿@model HospitalEF
+
+<h1 style="color: blue">Detalles del hospital</h1>
+
+<h1>@Model.IdHospital, @Model.Nombre, @Model.Telefono</h1>
+<h2>@Model.Direccion</h2>
+<h3>Numero de camas @Model.Camas</h3>
+
+<a asp-controller="Hospitales"
+asp-action="Index" class="btn btn-info">
+    Volver
+</a>
